@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start":"node index.js",
-    "test":"node index.js",
-    "bulid":"npm run build --prefix frontend"
+    "test": "NODE_ENV=development nodemon index.js",
+    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start":"NODE_ENV=production node index.js"
   },
   "author": "Nandan",
   "license": "ISC",
