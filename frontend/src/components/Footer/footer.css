@@ -1,0 +1,9 @@
+.FootSections{
+    margin-top: 5%;
+    width: 100%;
+}
+.footerSections{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}

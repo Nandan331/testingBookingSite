@@ -1,0 +1,40 @@
+/* Tab container */
+.tab-container {
+    position: relative;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #333;
+    font-weight: 600;
+}
+
+.tab.active {
+    color: #007bff;
+}
+
+/* Underline indicator */
+.tab-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 50%;
+    background: #007bff;
+    transition: transform 0.3s ease;
+}

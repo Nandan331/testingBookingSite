@@ -1,0 +1,20 @@
+.hotelSection{
+    width: 450px;
+}
+.hotelSection.hotelDetails{
+    width: 100%;
+}
+.fhContainer{
+    width: 400px;
+}
+.fhContainer.inputBox{
+    width: 100%;
+}
+.inputBox input{
+    width: 100%;
+}
+.hotelDetails{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}

@@ -1,0 +1,21 @@
+.hSection{
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    border: 1px solid black;
+}
+table{
+    width: 100%;
+}
+table, tr{
+    width: 100%;
+}
+tr, td, th{
+    border:1px solid black;
+    text-align: center;
+}
+td, th{
+    margin: 100px;
+}

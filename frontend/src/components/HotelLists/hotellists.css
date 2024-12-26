@@ -1,0 +1,51 @@
+/* General Styles */
+.TypesOfHotelSections {
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+/* City Section */
+.city-image {
+    height: 450px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.city-image:hover {
+    transform: scale(1.05);
+}
+
+.cityType {
+    text-align: center;
+}
+
+/* Carousel Section */
+.carousel-inner img {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.featured-hotels{
+    display: flex;
+    justify-content: center;
+}
+.cardSection{
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    margin: 2%;
+}

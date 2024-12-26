@@ -1,0 +1,27 @@
+.form-sections{
+    margin: 3%;
+    padding: 3%;
+    background-color: #FFBF00  ;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.properties-popularity-section{
+    margin:3%;
+    padding: 3%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+.facilities-section{
+    margin: 2%;
+    padding: 2%;
+}
+.facilities{
+    margin: 2%;
+    padding: 2%;
+}
+ul{
+    list-style: none;
+}

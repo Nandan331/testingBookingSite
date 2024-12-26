@@ -1,0 +1,9 @@
+.hotelFormSection{
+    display: flex;
+    justify-content: center;
+    margin: 70px;
+}
+
+.hotelForm{
+    width: 450px;
+}
