@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "NODE_ENV=development nodemon index.js",
-    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "build":"npm install && npm run build --prefix ../frontend",
     "start":"NODE_ENV=production node index.js"
   },
   "author": "Nandan",
