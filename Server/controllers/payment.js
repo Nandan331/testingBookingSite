@@ -4,7 +4,7 @@ import crypto from "crypto"
 import {User} from "./user.js";
 import dotenv from 'dotenv';
 
-dotenv.config({path:"./process.env"});
+dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
 .then(res => console.log("Payments server is connected"))
 .catch((err) => console.log("Server is not connected"));

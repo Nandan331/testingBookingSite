@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 const router = express.Router()
 
-dotenv.config({path:"./process.env"});
+dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
 .then((res)=>console.log("Room's Database is connected"))
 .catch((err)=>console.log("Unable to connect the Database",err))
