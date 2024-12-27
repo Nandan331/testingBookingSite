@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 
 dotenv.config({path:"./process.env"});
 console.log(process.env.MONGO_URI)
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Hotel's DataBase is Connected"))
   .catch((err) => console.log("Unable to connect to Database:", err));
 
