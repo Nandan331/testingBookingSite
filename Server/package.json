@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "scripts": {
+ "scripts": {
     "test": "nodemon index.js",
-    "build":"npm install && npm run build --prefix ../frontend",
+    "build":"npm install && npm install --prefix ../frontend && npm run build --prefix ../frontend",
     "start":"node index.js"
   },
   "author": "Nandan",
