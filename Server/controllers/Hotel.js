@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 import {Rooms} from './rooms.js'
+import dotenv from 'dotenv'
 
-mongoose.connect("mongodb://localhost:27017/hotelbooking")
+dotenv.config({path:"./process.env"});
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Hotel's DataBase is Connected"))
   .catch((err) => console.log("Unable to connect to Database:", err));
 
@@ -17,7 +19,7 @@ const hotelSchema = new mongoose.Schema({
     featured: { type: Boolean, default: false }
 });
 
-const Hotel = mongoose.model("Hotel", hotelSchema);
+const Hotel = mongoose.model("hotels", hotelSchema);
 
 //Create Hotel
 export const HotelCreate =  async (req, res) => {

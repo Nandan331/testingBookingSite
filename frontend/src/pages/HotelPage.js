@@ -7,7 +7,6 @@ import FetchHotels from "../components/fetchhotels/fetchhotels.js";
 import PriceCreteria from "../components/PriceCriteria/pricecriteria.js";
 import Footer from "../components/Footer/footer.js";
 import Footer2 from "../components/Footer/footer2.js";
-import "../pagestyles/HotelPage.css"
 
 function HotelsPage(){
     const { cities } = useParams();

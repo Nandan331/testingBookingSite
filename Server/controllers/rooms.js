@@ -1,13 +1,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import { Hotel } from './Hotel.js'
-
-
+import dotenv from 'dotenv';
 
 const router = express.Router()
 
-
-mongoose.connect("mongodb://localhost:27017/hotelbooking")
+dotenv.config({path:"./process.env"});
+mongoose.connect(process.env.MONGO_URI)
 .then((res)=>console.log("Room's Database is connected"))
 .catch((err)=>console.log("Unable to connect the Database",err))
 

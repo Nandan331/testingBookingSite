@@ -2,8 +2,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import { Rooms } from "./rooms.js";
+import dotenv from 'dotenv'
 
-mongoose.connect ("mongodb://localhost:27017/hotelbooking")
+dotenv.config({path:"./process.env"})
+mongoose.connect (process.env.MONGO_URI)
 .then(res => console.log("User's database is connected"))
 .catch(err => console.log("Server is not Running", err))
 

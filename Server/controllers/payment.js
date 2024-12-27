@@ -2,8 +2,10 @@ import {instance} from '../index.js'
 import mongoose from 'mongoose'
 import crypto from "crypto"
 import {User} from "./user.js";
+import dotenv from 'dotenv';
 
-mongoose.connect("mongodb://localhost:27017/hotelbooking")
+dotenv.config({path:"./process.env"});
+mongoose.connect(process.env.MONGO_URI)
 .then(res => console.log("Payments server is connected"))
 .catch((err) => console.log("Server is not connected"));
 

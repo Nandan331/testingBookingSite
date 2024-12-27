@@ -11,6 +11,7 @@ import { useCheckDates } from "../../context/CheckDates.js";
 function FetchHotels({ cities, minPrice, maxPrice }){
     const { isAuthenticated } = useAuthenticate();
     const [getHotels, setGetHotels] = useState([]);
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
     const {InDate , OutDate} = useCheckDates();
 
@@ -27,11 +28,15 @@ function FetchHotels({ cities, minPrice, maxPrice }){
     //Fetching the Hotel's based on the City or Hotel Name
     const fetchHotels = async(cities) => {
         try{
+            setLoading(true);
             const response = await axios.get(`http://localhost:8000/hotels/search?query=${cities}`)
             setGetHotels(response.data);
         }
         catch(err){
             console.log("Something went wrong", err)
+        }
+        finally{
+            setLoading(false);
         }
     };
 
@@ -61,6 +66,8 @@ function FetchHotels({ cities, minPrice, maxPrice }){
 
         }
     };
+
+    if(loading) return <p style={{textAlign:'center'}}>loading please wait...</p>
 
     return (
         <>

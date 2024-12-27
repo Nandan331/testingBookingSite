@@ -82,15 +82,6 @@ function ShowHotels(){
                                 Delete
                             </button>
                         </td>
-                        <td>
-                            <button
-                               onClick={() => {
-                                navigate(`/admin/hotel/view/${item._id}`)
-                            }}
-                            >
-                                view
-                            </button>
-                        </td>
                     </tr>
                     </>
                 ))}              
