@@ -13,8 +13,8 @@ dotenv.config({path:"./process.env"});
 export const app = express();
 app.use(cors(
     {
-        origin:"http://localhost:3000", 
-        methods:[ 'GET', 'POST', 'PUT', 'UPDATE', 'DELETE'],
+        origin:"*", 
+        methods:[ 'GET', 'POST', 'PUT', 'UPDATE', 'DELETE' ],
         credentials:true
     } 
 ))
