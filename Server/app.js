@@ -11,13 +11,13 @@ import verifyadmin from "./routes/verifyAdminRoutes.js"
 
 dotenv.config({path:"./process.env"});
 export const app = express();
-app.use(cors(
-    {
-        origin:"*", 
-        methods:[ 'GET', 'POST', 'PUT', 'UPDATE', 'DELETE' ],
-        credentials:true
-    } 
-))
+// app.use(cors(
+//     {
+//         origin:"http://localhost:3000", 
+//         methods:[ 'GET', 'POST', 'PUT', 'UPDATE', 'DELETE' ],
+//         credentials:true
+//     } 
+// ))
 app.use(express.json());
 app.use(cookieParser());
 
