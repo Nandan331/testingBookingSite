@@ -28,6 +28,7 @@ function ProtectedRoute() {
 
         verifyAuth();
     }, []);
+    console.log("Admin: ", isAdmin)
     if (isLoading) {
         return <div>Loading...</div>;
     }
