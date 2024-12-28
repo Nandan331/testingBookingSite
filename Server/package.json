@@ -5,6 +5,7 @@
   "type": "module",
  "scripts": {
     "test": "nodemon index.js",
+    "build": "npm install && npm install --preifx ../frontend && npm run build ",
     "start": "node index.js"
   },
   "author": "Nandan",
