@@ -26,7 +26,7 @@ function HotelLists() {
     //fetching featured Hotels Lists
     const featuredHotel = async() => {
         try{
-            const response = await axios.get("http://localhost:8000/hotels/featuredHotels/featured/limit?featured=true&limit=4");
+            const response = await axios.get("https://hotel-booking-2-htu6.onrender.com/hotels/featuredHotels/featured/limit?featured=true&limit=4");
             setFeaturedHotels(response.data);
         }
         catch(err){
