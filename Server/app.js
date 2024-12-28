@@ -12,7 +12,7 @@ dotenv.config({path:"./process.env"});
 export const app = express();
 app.use(cors(
     {
-        origin:"http://localhost:3000", 
+        origin:"https://hotel-booking-wld1.onrender.com", 
         methods:[ 'GET', 'POST', 'PUT', 'UPDATE', 'DELETE' ],
         credentials:true
     } 
