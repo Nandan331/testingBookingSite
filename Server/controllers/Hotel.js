@@ -20,7 +20,7 @@ const hotelSchema = new mongoose.Schema({
     featured: { type: Boolean, default: false }
 });
 
-const Hotel = mongoose.model("hotels", hotelSchema);
+const Hotel = mongoose.model("Hotel", hotelSchema);
 
 //Create Hotel
 export const HotelCreate =  async (req, res) => {
