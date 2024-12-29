@@ -7,6 +7,7 @@ import hotelRoutes from "./routes/hotelRoutes.js"
 import roomRoutes from "./routes/roomRoutes.js"
 import paymentRoutes from "./routes/paymentRoutes.js"
 import verifyadmin from "./routes/verifyAdminRoutes.js"
+import path from "path"
 
 dotenv.config({path:"./process.env"});
 export const app = express();
@@ -25,3 +26,12 @@ app.use("/hotels",hotelRoutes);
 app.use("/rooms",roomRoutes);
 app.use("/payments",paymentRoutes);
 app.use("/authverify",verifyadmin);
+
+const __dirname = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../frontend/build")));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+    });
+}
