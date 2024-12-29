@@ -146,7 +146,6 @@ export const login =  async (req, res) => {
         res.cookie("jwt_token", token,
             { 
                 httpOnly: true,
-                sameSite :"lax"
             }
         )
             .status(200).json({message:"user logged in successfully", details :{...userDetails}, Admin });
@@ -174,7 +173,6 @@ export const sign_up =  async (req, res) => {
         res.cookie("jwt_token",token,
             {
                 httpOnly:true,
-                sameSite:"none",
             }
         )    
         const {password, ...otherdetails} = user._doc
