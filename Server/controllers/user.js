@@ -143,7 +143,13 @@ export const login =  async (req, res) => {
         const token = jwt.sign({ id: user._id, Admin: user.Admin }, process.env.JWT_SECRET);
         const { password,Admin, ...userDetails } = user._doc;
                 
-        res.cookie("jwt_token", token, { httpOnly: true })
+        res.cookie("jwt_token", token,
+            { 
+                httpOnly: true,
+                secure:process.env.NODE_ENV === "production",
+                sameSite 
+            }
+        )
             .status(200).json({message:"user logged in successfully", details :{...userDetails}, Admin });
     } catch (err) {
         res.status(500).json({ message: "Login error", error: err.message });
@@ -166,7 +172,13 @@ export const sign_up =  async (req, res) => {
             });
         await user.save();    
         const token = jwt.sign({id: user._id, Admin: user.Admin}, process.env.JWT_SECRET);
-        res.cookie("jwt_token",token,{httpOnly:true})    
+        res.cookie("jwt_token",token,
+            {
+                httpOnly:true,
+                secure:process.env.NODE_ENV === "production",
+                sameSite:"none",
+            }
+        )    
         const {password, ...otherdetails} = user._doc
         res.status(200).json({message : "signed up successfully",otherdetails});
     } catch (err) {
