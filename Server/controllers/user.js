@@ -174,7 +174,7 @@ export const sign_up =  async (req, res) => {
         res.cookie("jwt_token",token,
             {
                 httpOnly:true,
-                sameSite:"lax",
+                sameSite:"none",
             }
         )    
         const {password, ...otherdetails} = user._doc
