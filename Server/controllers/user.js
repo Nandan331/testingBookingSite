@@ -175,8 +175,8 @@ export const sign_up =  async (req, res) => {
         res.cookie("jwt_token",token,
             {
                 httpOnly:true,
-                secure:process.env.NODE_ENV === "production",
-                sameSite:"none",
+                secure:false,
+                sameSite:"lax",
             }
         )    
         const {password, ...otherdetails} = user._doc
