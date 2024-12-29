@@ -1,1 +1,1 @@
-export const apiurl = "http://localhost:8000"
+export const apiurl = "https://testingbookingsite-1.onrender.com"
