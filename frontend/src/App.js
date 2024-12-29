@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router , Route, Routes, HashRouter } from 'react-router-dom';
 import Home from './pages/HomePage.js';
 import LoginPage from './pages/LoginPage.js';
 import SignUpPage from './pages/SignUpPage.js';
@@ -27,7 +27,7 @@ function App() {
   },[])
   return (
     <>
-    <HashRouter>
+    <Router>
     <Routes>
     <Route path='/' element={<Home/>}></Route>
     <Route path='/login' element={<LoginPage/>}></Route>
@@ -43,7 +43,7 @@ function App() {
     <Route path='/admin/hotel/create' element={<CreateHotel/>}></Route>
     </Route>
     </Routes>
-    </HashRouter>
+    </Router>
     </>
   );
 }
