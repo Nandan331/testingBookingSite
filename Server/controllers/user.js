@@ -147,7 +147,7 @@ export const login =  async (req, res) => {
             { 
                 httpOnly: true,
                 secure:process.env.NODE_ENV === "production",
-                sameSite 
+                sameSite :"none"
             }
         )
             .status(200).json({message:"user logged in successfully", details :{...userDetails}, Admin });
@@ -175,8 +175,8 @@ export const sign_up =  async (req, res) => {
         res.cookie("jwt_token",token,
             {
                 httpOnly:true,
-                secure:false,
-                sameSite:"lax",
+                secure:process.env.NODE_ENV === "production",
+                sameSite:"none",
             }
         )    
         const {password, ...otherdetails} = user._doc
