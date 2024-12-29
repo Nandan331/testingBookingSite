@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./editHotel.css"
+import { apiurl } from "../../../../config/config.js";
 
 function EditHotel(){
     const {hotelid} = useParams();
@@ -22,7 +23,7 @@ function EditHotel(){
     const fetchHotelDetails = async() => {
         try{
             setLoading(true)
-            const response = await axios.get(`http://localhost:8000/hotels/getHotel/${hotelid}`,{withCredentials:true})
+            const response = await axios.get(`${apiurl}/hotels/getHotel/${hotelid}`,{withCredentials:true})
             setHotelDetails(response.data);
             setOriginalData(response.data);
         }
@@ -56,7 +57,7 @@ function EditHotel(){
                 alert("No changes were made");
                 return
             }
-            await axios.put(`http://localhost:8000/hotels/hotelupdate/${hotelid}`,
+            await axios.put(`${apiurl}/hotels/hotelupdate/${hotelid}`,
                 hotelDetails,
                 {withCredentials:true}
             );

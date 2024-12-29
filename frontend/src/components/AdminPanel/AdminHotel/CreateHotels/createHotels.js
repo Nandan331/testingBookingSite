@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import axios from "axios";
 import "./createHotels.css"
+import { apiurl } from "../../../../config/config";
 
 function CreateHotel(){
     const [hotelDetails, setHotelDetails] = useState(
@@ -25,7 +26,7 @@ function CreateHotel(){
     const createHotel = async() => {
         try{
             setLoading(true)
-            await axios.post('http://localhost:8000/hotels/hotelcreate',
+            await axios.post(`${apiurl}/hotels/hotelcreate`,
                 hotelDetails,{withCredentials:true}
             );
             alert("Hotel created successfully");

@@ -7,6 +7,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import { useAuthenticate } from "../../context/Authentication.js";
 import "./fetchHotels.css"
 import { useCheckDates } from "../../context/CheckDates.js";
+import { apiurl } from "../../config/config.js";
 
 function FetchHotels({ cities, minPrice, maxPrice }){
     const { isAuthenticated } = useAuthenticate();
@@ -29,7 +30,7 @@ function FetchHotels({ cities, minPrice, maxPrice }){
     const fetchHotels = async(cities) => {
         try{
             setLoading(true);
-            const response = await axios.get(`http://localhost:8000/hotels/search?query=${cities}`)
+            const response = await axios.get(`${apiurl}/hotels/search?query=${cities}`)
             setGetHotels(response.data);
         }
         catch(err){
@@ -43,7 +44,7 @@ function FetchHotels({ cities, minPrice, maxPrice }){
     //Fetching the Hotel based on the price creteria
     const PriceCreteria = async(minPrice, maxPrice) => {
         try{
-            const response = await axios.get(`http://localhost:8000/hotels/min/max/city?min=${minPrice}&max=${maxPrice}&city=${cities}`,{withCredentials:true})
+            const response = await axios.get(`${apiurl}/hotels/min/max/city?min=${minPrice}&max=${maxPrice}&city=${cities}`,{withCredentials:true})
             setGetHotels(response.data);
         }
         catch(err){

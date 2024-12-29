@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import "./showHotels.css"
+import { apiurl } from "../../../../config/config.js";
 
 function ShowHotels(){
     const [getHotels, setGetHotels] = useState([]);
@@ -13,7 +14,7 @@ function ShowHotels(){
     const fetchHotels = async() => {
         try{
             setLoading(true);
-            const response = await axios.get('http://localhost:8000/hotels/getAllHotels',{withCredentials:true})
+            const response = await axios.get(`${apiurl}/hotels/getAllHotels`,{withCredentials:true})
             setGetHotels(response.data);
         }
         catch(err){

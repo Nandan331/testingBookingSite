@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./showCustomers.css"
 import axios from "axios";
+import { apiurl } from "../../../../config/config.js";
 
 function ShowUsers(){
     const [getUsers, setGetUsers] = useState([]);
@@ -14,7 +15,7 @@ function ShowUsers(){
     const fetchUserData = async() => {
         try{
             setLoading(true);
-            const response = await axios.get("http://localhost:8000/users/getAllUsers", {withCredentials:true})
+            const response = await axios.get(`${apiurl}/users/getAllUsers`, {withCredentials:true})
             setGetUsers(response.data);
         }
         catch(err){

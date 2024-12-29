@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"; // To get userId from params
 import axios from "axios";
 import "../../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./editCustomer.css"
+import { apiurl } from "../../../../config/config.js";
 
 function EditCustomer() {
     const { userId } = useParams();
@@ -20,7 +21,7 @@ function EditCustomer() {
         try {
             setLoading(true);
             const response = await axios.get(
-                `http://localhost:8000/users/getUser/${userId}`,
+                `${apiurl}/users/getUser/${userId}`,
                 { withCredentials: true }
             );
             setUserDetails(response.data);

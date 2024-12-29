@@ -3,6 +3,7 @@ import axios from "axios";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./useraccount.css"; // Custom CSS for the underline effect
 import { useAuthenticate } from "../../context/Authentication";
+import { apiurl } from "../../config/config.js";
 
 function UserAccount() {
     const { username, userId } = useAuthenticate();
@@ -20,7 +21,7 @@ function UserAccount() {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/users/getUserDetailsById/${userId}`);
+            const response = await axios.get(`${apiurl}/users/getUserDetailsById/${userId}`);
             setUserDetails(response.data || { reservations: [], canceledReservations: [] });
         } catch (err) {
             console.error("Unable to get the User Details", err);

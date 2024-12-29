@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthenticate } from "../../../context/Authentication";
+import { apiurl } from "../../../config/config";
 
 function ProtectedRoute() {
     const {username , userId} = useAuthenticate()
@@ -12,7 +13,7 @@ function ProtectedRoute() {
         const verifyAuth = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8000/authverify/auth/verifyadmin",
+                    `${apiurl}/authverify/auth/verifyadmin`,
                     { withCredentials: true }
                 );
 

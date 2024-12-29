@@ -4,6 +4,7 @@ import axios from "axios";
 import "../../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./viewCustomer.css"
 import AdminNavbar from "../../adminNavbar";
+import { apiurl } from "../../../../config/config.js";
 function ViewCustomer(){
     const [getUser, setGetUser] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ function ViewCustomer(){
     const fetchUserDetails = async() => {
         try{
             setLoading(true)
-            const response  = await axios.get(`http://localhost:8000/users/getUser/${userId}`,{withCredentials:true})
+            const response  = await axios.get(`${apiurl}/users/getUser/${userId}`,{withCredentials:true})
             setGetUser(response.data);
         }catch(err){
             setError(err.message);

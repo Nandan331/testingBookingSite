@@ -3,6 +3,7 @@ import axios from "axios";
 import { useCheckDates } from "../../context/CheckDates";
 import { useAuthenticate } from "../../context/Authentication";
 import "./reserve.css"
+import { apiurl } from "../../config/config.js";
 // import { setHours } from "react-datepicker/dist/date_utils";
 
 function RoomLists({ hotelid }) {
@@ -30,8 +31,8 @@ function RoomLists({ hotelid }) {
     //fetching the Data's based on hotel_id (Hotel Data , Rooms Data)
     const fetchRooms = async () => {
         try {
-            const hotelResponse = await axios.get(`http://localhost:8000/hotels/getHotel/${hotelid}`);
-            const roomResponse = await axios.get(`http://localhost:8000/hotels/fetchroomsbasedhotelid/${hotelid}`,
+            const hotelResponse = await axios.get(`${apiurl}/hotels/getHotel/${hotelid}`);
+            const roomResponse = await axios.get(`${apiurl}/hotels/fetchroomsbasedhotelid/${hotelid}`,
                 {
                     withCredentials: true
                 }
@@ -129,8 +130,8 @@ function RoomLists({ hotelid }) {
         }
         
         try {
-            const { data: { key } } = await axios.get("http://localhost:8000/payments/getKey");
-            const { data: { order } } = await axios.post("http://localhost:8000/payments/checkout", {
+            const { data: { key } } = await axios.get(`${apiurl}/payments/getKey`);
+            const { data: { order } } = await axios.post(`${apiurl}/payments/checkout`, {
                 amount: totalPrice,
             });
             const options = {
@@ -143,7 +144,7 @@ function RoomLists({ hotelid }) {
                 handler: async function (response) {
                     try {
                         const verifyResponse = await axios.post(
-                            `http://localhost:8000/payments/paymentverifcations/${username}`,
+                            `${apiurl}/payments/paymentverifcations/${username}`,
                             {
                                 razorpay_payment_id: response.razorpay_payment_id,
                                 razorpay_order_id: response.razorpay_order_id,
@@ -165,7 +166,7 @@ function RoomLists({ hotelid }) {
                         try{
                             await Promise.all(
                                 selectedRooms.map((roomId) => {
-                                    const response = axios.put(`http://localhost:8000/rooms/updateAvailability/${roomId}`,{
+                                    const response = axios.put(`${apiurl}/rooms/updateAvailability/${roomId}`,{
                                         dates : alldates
                                     });
                                     return response.data;

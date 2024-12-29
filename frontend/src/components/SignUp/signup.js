@@ -5,6 +5,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import "./signup.css"
 import { useAuthenticate } from "../../context/Authentication.js";
 import axios from "axios";
+import { apiurl } from "../../config/config.js";
 
 function Signup(){
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Signup(){
         e.preventDefault();
 
         try{
-            const response = await axios.post("http://localhost:8000/users/sign_up",
+            const response = await axios.post(`${apiurl}http://localhost:8000/users/sign_up`,
                 {
                     email, username, password
                 },

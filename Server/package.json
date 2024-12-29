@@ -4,9 +4,7 @@
   "main": "index.js",
   "type": "module",
  "scripts": {
-    "test": "nodemon Server/index.js",
-    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "npm start"
+    "test": "nodemon index.js"
     
   },
   "author": "Nandan",

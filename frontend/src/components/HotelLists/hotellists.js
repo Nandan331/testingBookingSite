@@ -7,6 +7,7 @@ import HotelImage from "../../images/Hotel.jpg";
 import Apartment from "../../images/Apartment.jpg";
 import Resort from "../../images/Resort.jpg";
 import Villa from "../../images/Villa.jpg";
+import { apiurl } from "../../config/config";
 
 function HotelLists() {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function HotelLists() {
     //fetching featured Hotels Lists
     const featuredHotel = async() => {
         try{
-            const response = await axios.get("https://hotel-booking-2-htu6.onrender.com/hotels/featuredHotels/featured/limit?featured=true&limit=4");
+            const response = await axios.get(`${apiurl}/hotels/featuredHotels/featured/limit?featured=true&limit=4`);
             setFeaturedHotels(response.data);
         }
         catch(err){
