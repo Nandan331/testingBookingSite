@@ -1,1 +1,1 @@
-export const apiurl = "http://localhost:8000"
+export const apiurl = "https://server-ov65.onrender.com"
