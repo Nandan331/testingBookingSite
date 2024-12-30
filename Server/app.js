@@ -13,7 +13,7 @@ dotenv.config({path:"./process.env"});
 export const app = express();
 app.use(cors(
     {
-        origin:"https://testingbookingsite.onrender.com", 
+        origin:"http://localhost:3001", 
         methods:[ 'GET', 'POST', 'PUT', 'UPDATE', 'DELETE' ],
         credentials:true
     } 
